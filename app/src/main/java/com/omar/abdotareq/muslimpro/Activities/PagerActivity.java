@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro;
+package com.omar.abdotareq.muslimpro.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.omar.abdotareq.muslimpro.Fragments.AhadethFragment;
+import com.omar.abdotareq.muslimpro.Fragments.AzkarFragment;
+import com.omar.abdotareq.muslimpro.Adapters.FragmentAdapter;
+import com.omar.abdotareq.muslimpro.R;
+
+/**
+ * this UI class controls the viewPager & BottomNavigationView & set the correct fragment
+ * */
 
 public class PagerActivity extends AppCompatActivity {
 
@@ -24,8 +32,19 @@ public class PagerActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         viewPager = findViewById(R.id.viewpager); //Init Viewpager
         setupFm(getSupportFragmentManager(), viewPager); //Setup Fragment
-        viewPager.setCurrentItem(0); //Set Currrent Item When Activity Start
         viewPager.setOnPageChangeListener(new PageChange()); //Listeners For Viewpager When Page Changed
+
+        if (getIntent().getIntExtra("index", -1) == 0) {
+            viewPager.setCurrentItem(0); //Set Currrent Item When Activity Start
+            navigation.setSelectedItemId(R.id.navigation_azkar);
+        }
+        else if (getIntent().getIntExtra("index", -1) == 1) {
+            viewPager.setCurrentItem(1); //Set Currrent Item When Activity Start
+            navigation.setSelectedItemId(R.id.navigation_ahadeth);
+
+        }
+
+
     }
 
     public static void setupFm(FragmentManager fragmentManager, ViewPager viewPager) {

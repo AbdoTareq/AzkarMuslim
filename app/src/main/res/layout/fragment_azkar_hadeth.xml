@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/home"
+        android:id="@+id/text_fragment"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         android:textStyle="bold" />

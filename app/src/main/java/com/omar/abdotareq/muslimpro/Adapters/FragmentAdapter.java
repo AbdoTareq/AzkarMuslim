@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro;
+package com.omar.abdotareq.muslimpro.Adapters;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

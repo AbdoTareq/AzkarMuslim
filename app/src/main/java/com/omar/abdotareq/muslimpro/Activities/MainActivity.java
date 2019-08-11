@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro;
+package com.omar.abdotareq.muslimpro.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.omar.abdotareq.muslimpro.R;
 
 
 /**
@@ -30,19 +32,19 @@ public class MainActivity extends AppCompatActivity {
         azkar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, PagerActivity.class);
-                startActivity(intent);
                 index = 0;
+                Intent intent = new Intent(MainActivity.this, PagerActivity.class);
+                intent.putExtra("index", index);
+                startActivity(intent);
             }
         });
         ahadeth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, PagerActivity.class);
-                startActivity(intent);
                 index = 1;
+                Intent intent = new Intent(MainActivity.this, PagerActivity.class);
+                intent.putExtra("index", index);
+                startActivity(intent);
             }
         });
 

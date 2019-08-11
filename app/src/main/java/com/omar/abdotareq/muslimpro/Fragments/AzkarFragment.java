@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro;
+package com.omar.abdotareq.muslimpro.Fragments;
 
 
 import android.os.Bundle;
@@ -9,12 +9,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.omar.abdotareq.muslimpro.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * this UI class controls Azkar .
  */
 public class AzkarFragment extends Fragment {
 
+
+    private TextView textView;
 
     public AzkarFragment() {
         // Required empty public constructor
@@ -24,7 +29,17 @@ public class AzkarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_azkar_hadeth, container, false);
+
+        View Azkar_fragment = inflater.inflate(R.layout.fragment_azkar_hadeth, container, false);
+
+        textView = Azkar_fragment.findViewById(R.id.text_fragment);
+        textView.setText("Azkar");
+
+
+
+        return Azkar_fragment;
+
+
     }
 
 }
