@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_ahadeth"
+        android:title="@string/ahadeth"
+        android:icon="@drawable/ahadeth"/>
+
+    <item
+        android:id="@+id/navigation_azkar"
+        android:title="@string/azkar"
+        android:icon="@drawable/ahadeth"/>
+
+</menu>
