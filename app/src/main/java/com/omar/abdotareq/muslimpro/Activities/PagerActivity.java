@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.omar.abdotareq.muslimpro.Fragments.AhadethFragment;
-import com.omar.abdotareq.muslimpro.Fragments.AzkarFragment;
+import com.omar.abdotareq.muslimpro.Fragments.AhadethListFragment;
+import com.omar.abdotareq.muslimpro.Fragments.AzkarListFragment;
 import com.omar.abdotareq.muslimpro.Adapters.FragmentAdapter;
 import com.omar.abdotareq.muslimpro.R;
 
@@ -50,8 +50,8 @@ public class PagerActivity extends AppCompatActivity {
     public static void setupFm(FragmentManager fragmentManager, ViewPager viewPager) {
         FragmentAdapter Adapter = new FragmentAdapter(fragmentManager);
         //Add All Fragment To List
-        Adapter.add(new AzkarFragment(), "Page Azkar");
-        Adapter.add(new AhadethFragment(), "Page Ahadeth");
+        Adapter.add(new AzkarListFragment(), "Page Azkar");
+        Adapter.add(new AhadethListFragment(), "Page Ahadeth");
         viewPager.setAdapter(Adapter);
     }
 
