@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.Activities;
+package com.omar.abdotareq.muslimpro.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.omar.abdotareq.muslimpro.Fragments.AhadethListFragment;
-import com.omar.abdotareq.muslimpro.Fragments.AzkarListFragment;
-import com.omar.abdotareq.muslimpro.Adapters.FragmentAdapter;
+import com.omar.abdotareq.muslimpro.fragments.AhadethListFragment;
+import com.omar.abdotareq.muslimpro.fragments.AzkarListFragment;
+import com.omar.abdotareq.muslimpro.adapters.FragmentAdapter;
 import com.omar.abdotareq.muslimpro.R;
 
 /**

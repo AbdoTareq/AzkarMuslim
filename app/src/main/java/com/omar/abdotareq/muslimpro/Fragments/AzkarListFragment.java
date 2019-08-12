@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.Fragments;
+package com.omar.abdotareq.muslimpro.fragments;
 
 
 import android.content.Intent;
@@ -15,8 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.omar.abdotareq.muslimpro.Activities.HadethActivity;
-import com.omar.abdotareq.muslimpro.Model.Hadeth;
+import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
+import com.omar.abdotareq.muslimpro.model.Hadeth;
 import com.omar.abdotareq.muslimpro.R;
 
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ import java.util.ArrayList;
  */
 public class AzkarListFragment extends Fragment {
 
-    ListView azkarListView;
-    ArrayList<Hadeth> azkarArrayList;
-    ArrayList<String> temp;
+    private ListView azkarListView;
+    private ArrayList<Hadeth> azkarArrayList;
+    private ArrayList<String> temp;
 
     public AzkarListFragment() {
         // Required empty public constructor
@@ -69,7 +69,7 @@ public class AzkarListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getActivity(), "position: "+i, Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(getActivity(), HadethActivity.class);
+                Intent intent =new Intent(getActivity(), ZekrActivity.class);
                 startActivity(intent);
             }
         });

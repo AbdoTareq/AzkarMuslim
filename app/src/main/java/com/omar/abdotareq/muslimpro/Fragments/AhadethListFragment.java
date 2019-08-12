@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.Fragments;
+package com.omar.abdotareq.muslimpro.fragments;
 
 
 import android.content.Intent;
@@ -14,8 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.omar.abdotareq.muslimpro.Activities.HadethActivity;
-import com.omar.abdotareq.muslimpro.Model.Hadeth;
+import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
+import com.omar.abdotareq.muslimpro.model.Hadeth;
 import com.omar.abdotareq.muslimpro.R;
 
 import java.util.ArrayList;
@@ -25,9 +25,9 @@ import java.util.ArrayList;
  */
 public class AhadethListFragment extends Fragment {
 
-    ListView ahadethListView;
-    ArrayList<Hadeth> ahadethArrayList;
-    ArrayList<String> temp;
+    private ListView ahadethListView;
+    private ArrayList<Hadeth> ahadethArrayList;
+    private ArrayList<String> temp;
 
     public AhadethListFragment() {
         // Required empty public constructor
@@ -43,7 +43,7 @@ public class AhadethListFragment extends Fragment {
         ahadethListView = view.findViewById(R.id.listView);
 
         ahadethArrayList = new ArrayList<Hadeth>();
-        temp = new ArrayList<String >();
+        temp = new ArrayList<String>();
         ahadethArrayList.add(new Hadeth("First Hadeth"));
         ahadethArrayList.add(new Hadeth("second"));
         ahadethArrayList.add(new Hadeth("third"));
@@ -57,7 +57,7 @@ public class AhadethListFragment extends Fragment {
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your
         // array as a third parameter.
-        ArrayAdapter<String > HadethAdapter = new ArrayAdapter<>(
+        ArrayAdapter<String> HadethAdapter = new ArrayAdapter<>(
                 getContext(),
                 android.R.layout.simple_list_item_1,
                 temp);
@@ -67,8 +67,8 @@ public class AhadethListFragment extends Fragment {
         ahadethListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "position: "+i, Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(getActivity(), HadethActivity.class);
+                Toast.makeText(getActivity(), "position: " + i, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ZekrActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.Activities;
+package com.omar.abdotareq.muslimpro.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.omar.abdotareq.muslimpro.R;
 

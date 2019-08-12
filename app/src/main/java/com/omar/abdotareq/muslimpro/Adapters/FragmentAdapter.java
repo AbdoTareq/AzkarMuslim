@@ -1,13 +1,13 @@
-package com.omar.abdotareq.muslimpro.Adapters;
+package com.omar.abdotareq.muslimpro.adapters;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentAdapter extends FragmentPagerAdapter {
+public class FragmentAdapter extends FragmentStatePagerAdapter {
     private List<androidx.fragment.app.Fragment> Fragment = new ArrayList<>(); //Fragment List
     private List<String> NamePage = new ArrayList<>(); // Fragment Name List
 
