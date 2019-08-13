@@ -18,7 +18,7 @@ import com.omar.abdotareq.muslimpro.R;
  * this UI class controls the viewPager & BottomNavigationView & set the correct fragment
  * */
 
-public class PagerActivity extends AppCompatActivity {
+public class PagerListActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     BottomNavigationView navigation;
@@ -26,7 +26,7 @@ public class PagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pager);
+        setContentView(R.layout.activity_pager_list);
 
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -35,11 +35,11 @@ public class PagerActivity extends AppCompatActivity {
         viewPager.setOnPageChangeListener(new PageChange()); //Listeners For Viewpager When Page Changed
 
         if (getIntent().getIntExtra("index", -1) == 0) {
-            viewPager.setCurrentItem(0); //Set Currrent Item When Activity Start
+            viewPager.setCurrentItem(0); //Set Current Item When Activity Start
             navigation.setSelectedItemId(R.id.navigation_azkar);
         }
         else if (getIntent().getIntExtra("index", -1) == 1) {
-            viewPager.setCurrentItem(1); //Set Currrent Item When Activity Start
+            viewPager.setCurrentItem(1); //Set Current Item When Activity Start
             navigation.setSelectedItemId(R.id.navigation_ahadeth);
 
         }

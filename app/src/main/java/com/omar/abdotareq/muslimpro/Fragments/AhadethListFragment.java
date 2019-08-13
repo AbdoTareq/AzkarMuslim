@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.omar.abdotareq.muslimpro.activities.HadethActivity;
 import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
 import com.omar.abdotareq.muslimpro.model.Hadeth;
 import com.omar.abdotareq.muslimpro.R;
@@ -28,6 +29,8 @@ public class AhadethListFragment extends Fragment {
     private ListView ahadethListView;
     private ArrayList<Hadeth> ahadethArrayList;
     private ArrayList<String> temp;
+
+    private int azkarOrAhadeth=1;
 
     public AhadethListFragment() {
         // Required empty public constructor
@@ -68,7 +71,7 @@ public class AhadethListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getActivity(), "position: " + i, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), ZekrActivity.class);
+                Intent intent = new Intent(getActivity(), HadethActivity.class);
                 startActivity(intent);
             }
         });

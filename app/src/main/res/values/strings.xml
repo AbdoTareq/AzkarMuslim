@@ -6,4 +6,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hadeth_fragment">Hadeth Fragment</string>
+    <string name="zekr_fragment">Put Zekr here in fragment viewpager</string>
+    <string name="put_hadeth_here">Put Hadeth here Activity</string>
 </resources>

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 index = 0;
-                Intent intent = new Intent(MainActivity.this, PagerActivity.class);
+                Intent intent = new Intent(MainActivity.this, PagerListActivity.class);
                 intent.putExtra("index", index);
                 startActivity(intent);
             }
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 index = 1;
-                Intent intent = new Intent(MainActivity.this, PagerActivity.class);
+                Intent intent = new Intent(MainActivity.this, PagerListActivity.class);
                 intent.putExtra("index", index);
                 startActivity(intent);
             }

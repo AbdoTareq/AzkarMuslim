@@ -70,6 +70,7 @@ public class AzkarListFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getActivity(), "position: "+i, Toast.LENGTH_SHORT).show();
                 Intent intent =new Intent(getActivity(), ZekrActivity.class);
+                intent.putExtra("position", i);
                 startActivity(intent);
             }
         });

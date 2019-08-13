@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.omar.abdotareq.muslimpro.R;
 
-public class ZekrActivity extends AppCompatActivity {
+public class HadethActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zekr);
+        setContentView(R.layout.activity_hadeth);
     }
 }
