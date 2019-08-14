@@ -52,7 +52,7 @@ public class DoaaFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_doaa, container, false);
 
-        //get the contect
+        //get the context
         final Context context = getContext();
 
         //initialize UI elements
@@ -73,7 +73,7 @@ public class DoaaFragment extends Fragment {
         String zekrOrderText = (currentDoaa.getId() + 1) + context.getString(R.string.outOf) + totalDoaasNumber;
         doaaOrder.setText(zekrOrderText);
         doaaCount.setText(CountsAsString.getCountAsString(currentDoaa.getNumber()));
-        doaaCurrentCount.setText(currentDoaaCount);
+        doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
 
         //set the progress bar info
         doaaProgressBar.setMax(currentDoaa.getNumber());
@@ -85,14 +85,29 @@ public class DoaaFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if (currentDoaaCount < currentDoaa.getNumber()) {
+                if (currentDoaaCount == currentDoaa.getNumber() - 1
+                        && currentDoaa.getId() != totalDoaasNumber - 1) {
+                    //if the current doaa count is the last count for this doaa
+                    //and this is not the last doaa
+
+                    //increment the current count by 1
+                    currentDoaaCount++;
+
+                    //update this info to the user
+                    doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
+                    doaaProgressBar.setProgress(currentDoaaCount);
+
+                    //then go to the next doaa
+                    ((ZekrActivity) getActivity()).getPager().setCurrentItem(currentDoaa.getId() + 1);
+
+                } else if (currentDoaaCount < currentDoaa.getNumber() && currentDoaaCount != currentDoaa.getNumber() - 1) {
                     //if the current doaa count is still less than the total counts
 
                     //increment the current count by 1
                     currentDoaaCount++;
 
                     //update this info to the user
-                    doaaCurrentCount.setText(currentDoaaCount);
+                    doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
                     doaaProgressBar.setProgress(currentDoaaCount);
 
                 } else if (currentDoaa.getId() < totalDoaasNumber - 1) {
@@ -103,6 +118,14 @@ public class DoaaFragment extends Fragment {
 
                 } else {
                     //if the current doaa count is the last doaa
+
+                    //increment the current count by 1
+                    if (currentDoaaCount < currentDoaa.getNumber())
+                        currentDoaaCount++;
+
+                    //update this info to the user
+                    doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
+                    doaaProgressBar.setProgress(currentDoaaCount);
 
                     //vibrate and notify user that this is this zekr finished
                     vibrate(context);

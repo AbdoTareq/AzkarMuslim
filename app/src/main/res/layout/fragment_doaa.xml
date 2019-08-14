@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/doaa_full_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    android:id="@+id/doaa_full_layout"
     android:clickable="true"
     android:focusable="true">
 
@@ -67,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:layout_margin="8dp" />
 
             <TextView
                 android:id="@+id/doaa_count"
@@ -75,20 +76,23 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp" />
 
             <TextView
                 android:id="@+id/doaa_current_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp" />
 
             <com.daasuu.ahp.AnimateHorizontalProgressBar
                 android:id="@+id/doaa_progress_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_margin="8dp"
                 app:ahp_backgroundColor="@color/darkGray"
                 app:ahp_progressColor="@color/colorPrimary" />
 
