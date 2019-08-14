@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.adapters.FragmentAdapter;
-import com.omar.abdotareq.muslimpro.fragments.ZekrFragment;
+import com.omar.abdotareq.muslimpro.fragments.DoaaFragment;
 
 public class ZekrActivity extends AppCompatActivity {
 
@@ -37,8 +37,8 @@ public class ZekrActivity extends AppCompatActivity {
     public static void setupFm(FragmentManager fragmentManager, ViewPager viewPager) {
         FragmentAdapter Adapter = new FragmentAdapter(fragmentManager);
         //Add All Fragment To List
-        Adapter.add(new ZekrFragment(), "Zekr 1");
-        Adapter.add(new ZekrFragment(), "Zekr 2");
+        Adapter.add(new DoaaFragment(), "Zekr 1");
+        Adapter.add(new DoaaFragment(), "Zekr 2");
         viewPager.setAdapter(Adapter);
     }
 

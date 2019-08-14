@@ -31,4 +31,7 @@ dependencies {
     //Bottom navigation view
     implementation 'com.google.android.material:material:1.0.0'
 
+    //Horizontal Progress Bar Library
+    implementation 'com.daasuu:animateHorizontalProgressBar:0.2.4'
+
 }
