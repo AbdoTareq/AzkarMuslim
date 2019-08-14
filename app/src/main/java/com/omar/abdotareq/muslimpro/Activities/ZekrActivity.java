@@ -56,4 +56,8 @@ public class ZekrActivity extends AppCompatActivity {
         public void onPageScrollStateChanged(int state) {
         }
     }
+
+    public ViewPager getPager() {
+        return azkarViewpager;
+    }
 }

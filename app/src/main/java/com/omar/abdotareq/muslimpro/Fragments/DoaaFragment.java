@@ -2,19 +2,25 @@ package com.omar.abdotareq.muslimpro.fragments;
 
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daasuu.ahp.AnimateHorizontalProgressBar;
 import com.omar.abdotareq.muslimpro.R;
+import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
 import com.omar.abdotareq.muslimpro.data.CountsAsString;
 import com.omar.abdotareq.muslimpro.model.Doaa;
 
@@ -47,7 +53,7 @@ public class DoaaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_doaa, container, false);
 
         //get the contect
-        Context context = getContext();
+        final Context context = getContext();
 
         //initialize UI elements
         doaaText = view.findViewById(R.id.doaa_text);
@@ -59,7 +65,7 @@ public class DoaaFragment extends Fragment {
 
         //get the current Doaa nad the total number of doaas
         final Doaa currentDoaa = (Doaa) getArguments().getSerializable("DOAA");
-        int totalDoaasNumber = Integer.parseInt(getArguments().getString("DOAAS_NUMBER"));
+        final int totalDoaasNumber = Integer.parseInt(getArguments().getString("DOAAS_NUMBER"));
 
         //set text for all text fields
         doaaText.setText(currentDoaa.getText());
@@ -89,11 +95,18 @@ public class DoaaFragment extends Fragment {
                     doaaCurrentCount.setText(currentDoaaCount);
                     doaaProgressBar.setProgress(currentDoaaCount);
 
-                } else {
+                } else if (currentDoaa.getId() < totalDoaasNumber - 1) {
+                    //if the current doaa count is not the last doaa
 
-                    /**Todo: Here OMAR will check if this is not the last page -> go to next page
-                     * Todo: else if last page -> notify user that zekr has ended
-                     */
+                    //then go to the next doaa
+                    ((ZekrActivity) getActivity()).getPager().setCurrentItem(currentDoaa.getId() + 1);
+
+                } else {
+                    //if the current doaa count is the last doaa
+
+                    //vibrate and notify user that this is this zekr finished
+                    vibrate(context);
+                    Toast.makeText(context, context.getString(R.string.doaa_finished), Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -103,4 +116,22 @@ public class DoaaFragment extends Fragment {
         return view;
     }
 
+    /**
+     * this method must be @JavascriptInterface as ' It's cause the method getSystemService
+     * belongs to the class Context, so you have to run it on a context but we're running it from an activity.'
+     */
+    @JavascriptInterface
+    public void vibrate(Context cn) {
+        Vibrator v = (Vibrator) cn.getSystemService(Context.VIBRATOR_SERVICE);
+        // Vibrate for 700 milliseconds
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            assert v != null;
+            v.vibrate(VibrationEffect.createOneShot(400, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            //deprecated in API 26
+            assert v != null;
+            v.vibrate(400);
+        }
+
+    }
 }

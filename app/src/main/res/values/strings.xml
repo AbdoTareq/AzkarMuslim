@@ -10,4 +10,5 @@
     <string name="zekr_fragment">Put Zekr here in fragment viewpager</string>
     <string name="put_hadeth_here">Put Hadeth here Activity</string>
     <string name="outOf">\\u0020out of\\u0020</string>
+    <string name="doaa_finished">Doaa Finished</string>
 </resources>
