@@ -2,11 +2,17 @@ package com.omar.abdotareq.muslimpro.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,6 +36,8 @@ public class PagerListActivity extends AppCompatActivity {
     private String azkarAsString;
     private String fourtiesAsString;
 
+    private FragmentAdapter fragmentAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +49,6 @@ public class PagerListActivity extends AppCompatActivity {
             azkarAsString = getIntent().getExtras().getString("AZKAR");
             fourtiesAsString = getIntent().getExtras().getString("FOURTIES");
 //            Log.d(LOG_TAG, "this FOURTIES gson" + fourtiesAsString);
-
-
-
 
 
         } catch (Exception e) {
@@ -79,12 +84,12 @@ public class PagerListActivity extends AppCompatActivity {
 
     }
 
-    public static void setupFm(FragmentManager fragmentManager, ViewPager viewPager) {
-        FragmentAdapter Adapter = new FragmentAdapter(fragmentManager);
+    public void setupFm(FragmentManager fragmentManager, ViewPager viewPager) {
+        fragmentAdapter = new FragmentAdapter(fragmentManager);
         //Add All Fragment To List
-        Adapter.add(new AzkarListFragment(), "Page Azkar");
-        Adapter.add(new AhadethListFragment(), "Page Ahadeth");
-        viewPager.setAdapter(Adapter);
+        fragmentAdapter.add(new AzkarListFragment(), "Page Azkar");
+        fragmentAdapter.add(new AhadethListFragment(), "Page Ahadeth");
+        viewPager.setAdapter(fragmentAdapter);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -123,5 +128,64 @@ public class PagerListActivity extends AppCompatActivity {
         @Override
         public void onPageScrollStateChanged(int state) {
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.main_toolbar_menu_search);
+        final SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView =
+                (SearchView) MenuItemCompat.getActionView(searchItem);
+
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                fragmentAdapter.changeAzkarAndAhadeth(newText);
+
+                return false;
+            }
+        });
+
+        MenuItemCompat.OnActionExpandListener expandListener = new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                return true;
+            }
+        };
+        MenuItemCompat.setOnActionExpandListener(searchItem, expandListener);
+
+        return true;
+
+    }
+
+    //For back button
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            finish();
+        else if (item.getItemId() == R.id.main_toolbar_menu_search) {
+
+        }
+
+        return super.onOptionsItemSelected(item);
+
     }
 }

@@ -25,6 +25,21 @@ public class AhadethListAdapter extends ArrayAdapter {
         mAhadeth = ahadeth;
     }
 
+    /**
+     * A method called to update the ahadeth list of the adapter and notify for changes
+     */
+    public void updateAhadethList(List<Hadeth> ahadeth) {
+
+        //clear the current ahadeth
+        this.mAhadeth.clear();
+
+        //add the new ahadeth
+        this.mAhadeth.addAll(ahadeth);
+
+        //notify the adapter for data changes
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return super.getCount();

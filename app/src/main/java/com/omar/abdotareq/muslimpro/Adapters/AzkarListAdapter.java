@@ -24,6 +24,21 @@ public class AzkarListAdapter extends ArrayAdapter {
         mAzkar = azkar;
     }
 
+    /**
+     * A method called to update the azkar list of the adapter and notify for changes
+     */
+    public void updateAzkar(List<Zekr> azkar) {
+
+        //clear the current azkar
+        this.mAzkar.clear();
+
+        //add the new azkar
+        this.mAzkar.addAll(azkar);
+
+        //notify the adapter for data changes
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return super.getCount();
