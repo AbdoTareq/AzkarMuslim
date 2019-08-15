@@ -10,12 +10,13 @@ import com.omar.abdotareq.muslimpro.fragments.DoaaFragment;
 import com.omar.abdotareq.muslimpro.model.Doaa;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DoaaAdapter extends FragmentPagerAdapter {
 
-    private ArrayList<Doaa> doaas;
+    private List<Doaa> doaas;
 
-    public DoaaAdapter(FragmentManager fm, ArrayList<Doaa> doaas) {
+    public DoaaAdapter(FragmentManager fm, List<Doaa> doaas) {
         super(fm);
         this.doaas = doaas;
 

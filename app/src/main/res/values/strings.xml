@@ -12,4 +12,5 @@
     <!-- <string name="outOf">\u0020out of\u0020</string> -->
     <string name="outOf">" out of "</string>
     <string name="doaa_finished">Doaa Finished</string>
+    <string name="problem_occurred">A problem occurred</string>
 </resources>

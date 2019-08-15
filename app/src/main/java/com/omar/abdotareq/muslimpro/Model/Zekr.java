@@ -21,6 +21,14 @@ public class Zekr implements Serializable {
         this.doaas = doaas;
     }
 
+    public Zekr(int id, String title, String titleNoTa4kel, int favourite, int numberOfDoaa) {
+        this.id = id;
+        this.title = title;
+        this.titleNoTa4kel = titleNoTa4kel;
+        this.favourite = favourite;
+        this.numberOfDoaa = numberOfDoaa;
+    }
+
     public Zekr(String title) {
         this.title = title;
     }

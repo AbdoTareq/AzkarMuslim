@@ -1,5 +1,6 @@
 package com.omar.abdotareq.muslimpro.activities;
 
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,73 +8,54 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.adapters.DoaaAdapter;
+import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
 import com.omar.abdotareq.muslimpro.model.Doaa;
+import com.omar.abdotareq.muslimpro.model.Hadeth;
+import com.omar.abdotareq.muslimpro.model.Zekr;
 
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * A UI class Activity which contains a view pager that shows all the doaa for a zekr
+ */
 public class ZekrActivity extends AppCompatActivity {
 
+    //create empty view pager
     private ViewPager azkarViewpager;
-    private DoaaAdapter doaaAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zekr);
 
+        //initialize view pager
         azkarViewpager = findViewById(R.id.azkar_viewpager); //Init Viewpager
 
-        setupFm(); //Setup Fragment
+        //get the clicked zekr id from intent extra
+        int zekrId = getIntent().getIntExtra("ZEKR_ID", 0);
 
-        azkarViewpager.setOnPageChangeListener(new PageChange()); //Listeners For Viewpager When Page Changed
-
-//        if (getIntent().getIntExtra("index", -1) == 0) {
-//            azkarViewpager.setCurrentItem(0); //Set Current Item When Activity Start
-//        } else if (getIntent().getIntExtra("index", -1) == 1) {
-//            azkarViewpager.setCurrentItem(1); //Set Current Item When Activity Start
-//        } else if (getIntent().getIntExtra("index", -1) == 2) {
-//            azkarViewpager.setCurrentItem(2); //Set Current Item When Activity Start
-//        }
+        //set up the view pager with the fragment manager
+        setupDoaaFm(zekrId); //Setup Fragment
 
     }
 
-    public void setupFm() {
+    /**
+     * A method called to setup the fragment manger along with the doaa in this zekr
+     */
+    public void setupDoaaFm(int zekrParentId) {
 
-        //Initialize three doaas for test
-        //Todo: remove these three initializations after implementing the DB Helper
-        Doaa doaa1 = new Doaa(0, "سبحان الله", "عمر", 0, 5);
-        Doaa doaa2 = new Doaa(1, "الحمد لله", "عمر", 0, 5);
-        Doaa doaa3 = new Doaa(2, "الله أكبر", "عمر", 0, 5);
-
-        ArrayList<Doaa> doaaList = new ArrayList<>();
-        doaaList.add(doaa1);
-        doaaList.add(doaa2);
-        doaaList.add(doaa3);
+        //get the doaa list in this zekr (which have the same parent zekr id as the passed from the intent")
+        List<Doaa> doaaList = initializeDoaa(zekrParentId);
 
         //initialie the doaa adapter
-        doaaAdapter = new DoaaAdapter(getSupportFragmentManager(), doaaList);
+        DoaaAdapter doaaAdapter = new DoaaAdapter(getSupportFragmentManager(), doaaList);
 
         //set up the adapter with the view pager
         azkarViewpager.setAdapter(doaaAdapter);
 
         //set the offScfreen Pages Limit to the number of doaas - 1
-        //Todo: change the 2 to zekr.getDoaasNumber()-1
-        azkarViewpager.setOffscreenPageLimit(2);
-    }
-
-
-    public class PageChange implements ViewPager.OnPageChangeListener {
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-        }
+        azkarViewpager.setOffscreenPageLimit(doaaList.size() - 1);
     }
 
     /**
@@ -81,5 +63,38 @@ public class ZekrActivity extends AppCompatActivity {
      */
     public ViewPager getPager() {
         return azkarViewpager;
+    }
+
+    /**
+     * A method called to get the doaa which have the same zekr parent id as the passed to the method and return doaa list
+     */
+    private List<Doaa> initializeDoaa(int zekrParentId) {
+
+        //initialize empty Doaa list
+        List<Doaa> doaaList = new ArrayList<>();
+
+        //Initialize Instance of DataBaseHelper class and initiallize it
+        DataBaseHelper myDbHelper = new DataBaseHelper(ZekrActivity.this);
+
+        //get the cursor object from the database pointing to the desired doaas
+        Cursor azkarCursor = myDbHelper.getDoaaByZekrId(zekrParentId);
+
+        //loop on the cursor rows
+        while (azkarCursor.moveToNext()) {
+
+            //get the data
+            int id = azkarCursor.getInt(0);
+            String text = azkarCursor.getString(1);
+            String teller = azkarCursor.getString(2);
+            int count = azkarCursor.getInt(4);
+
+            //add a new doaa to the list
+            doaaList.add(new Doaa(id, text, teller, zekrParentId, count));
+
+        }
+
+        //return the doaa list
+        return doaaList;
+
     }
 }

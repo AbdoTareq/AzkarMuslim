@@ -7,9 +7,9 @@
     tools:context=".activities.ZekrActivity">
 
     <androidx.viewpager.widget.ViewPager
-        android:layout_width="match_parent"
         android:id="@+id/azkar_viewpager"
-        android:layout_marginBottom="?attr/actionBarSize"
-        android:layout_height="match_parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

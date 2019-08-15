@@ -6,6 +6,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 import android.widget.Toast;
 
 import java.io.FileOutputStream;
@@ -20,7 +21,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final int DB_VERSION = 1;
 
     //The Android's default system path of your application database.
-
 
     private static String DB_NAME = "azkark.db";
     private SQLiteDatabase myDataBase;
@@ -138,6 +138,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * A method called to get a doaa list by their zekr parent id
+     */
+    public Cursor getDoaaByZekrId(int id) {
+
+        //Open the database
+        String myPath = DB_PATH + DB_NAME;
+        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        return myDataBase.rawQuery("SELECT * FROM " + "doaa" + " WHERE " + "zekrParentID" + " = " + id, null);
+
+    }
+
+    /**
+     * A method called to get a hadeth by it's id
+     */
+    public Cursor getHadethById(int id) {
+
+        //Open the database
+        String myPath = DB_PATH + DB_NAME;
+        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        return myDataBase.rawQuery("SELECT * FROM " + "forty" + " WHERE " + "_id" + " = " + id, null);
+
+    }
+
     @Override
     public synchronized void close() {
 
@@ -145,6 +169,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             myDataBase.close();
 
         super.close();
+
+    }
+
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            db.disableWriteAheadLogging();
+        }
+
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            db.disableWriteAheadLogging();
+        }
 
     }
 

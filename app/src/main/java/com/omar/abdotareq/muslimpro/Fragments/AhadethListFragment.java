@@ -2,6 +2,7 @@ package com.omar.abdotareq.muslimpro.fragments;
 
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,9 @@ import com.google.gson.reflect.TypeToken;
 import com.omar.abdotareq.muslimpro.activities.HadethActivity;
 import com.omar.abdotareq.muslimpro.activities.PagerListActivity;
 import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
+import com.omar.abdotareq.muslimpro.adapters.AhadethListAdapter;
+import com.omar.abdotareq.muslimpro.adapters.AzkarListAdapter;
+import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
 import com.omar.abdotareq.muslimpro.model.Hadeth;
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.model.Zekr;
@@ -36,10 +40,8 @@ import static com.omar.abdotareq.muslimpro.activities.PagerListActivity.LOG_TAG;
 public class AhadethListFragment extends Fragment {
 
     private ListView ahadethListView;
-    private ArrayList<Hadeth> ahadethArrayList;
-    private ArrayList<String> temp;
+    private List<Hadeth> ahadeth = new ArrayList<>();
 
-    private int azkarOrAhadeth=1;
 
     public AhadethListFragment() {
         // Required empty public constructor
@@ -49,55 +51,73 @@ public class AhadethListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         final String LOG_TAG = AhadethListFragment.class.getSimpleName();
+        final String LOG_TAG = AhadethListFragment.class.getSimpleName();
 
+        //get the view
         View view = inflater.inflate(R.layout.fragment_list_azkar_hadeth, container, false);
 
-
+        //initialize the hadeth list view
         ahadethListView = view.findViewById(R.id.listView);
 
-        ahadethArrayList = new ArrayList<Hadeth>();
+        //initialize all the ahadeth from the databse
+        initializeAhadeth();
 
-        // Receive data(Azkar) from PagerListActivity
-        String ahadethAsString = "empty";
-        Bundle bundle = getActivity().getIntent().getExtras();
-        if (bundle != null) {
-            ahadethAsString = bundle.getString("FOURTIES");
-        }
+        //initialize the adapter
+        AhadethListAdapter ahadethAdapter = new AhadethListAdapter(
+                getContext(),
+                android.R.layout.simple_list_item_1,
+                ahadeth);
 
-        // Change string to ArrayList
-        Type listOfAhadeth = new TypeToken<List<Hadeth>>() {
-        }.getType();
-        Log.d(LOG_TAG, "this FOURTIES gson" + ahadethAsString);
+        //set up the adapter with the list view
+        ahadethListView.setAdapter(ahadethAdapter);
 
-        ahadethArrayList = new Gson().fromJson(ahadethAsString, listOfAhadeth);
-
-//        temp = new ArrayList<String>();
-//        for (Hadeth hadeth : ahadethArrayList
-//        ) {
-//            temp.add(hadeth.getTitle());
-//        }
-//
-//        // This is the array adapter, it takes the context of the activity as a
-//        // first parameter, the type of list view as a second parameter and your
-//        // array as a third parameter.
-//        ArrayAdapter<String> HadethAdapter = new ArrayAdapter<>(
-//                getContext(),
-//                android.R.layout.simple_list_item_1,
-//                temp);
-//
-//        ahadethListView.setAdapter(HadethAdapter);
-
+        //listen to list item clicks
         ahadethListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), "position: " + i, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), HadethActivity.class);
-                startActivity(intent);
+                //if user clicks any item on the list
+
+                //create a new intent to the Hadeth Activity
+                Intent zekrIntetnt = new Intent(getActivity(), HadethActivity.class);
+
+                //pass the clicked hadeth id as extras with the intent
+                zekrIntetnt.putExtra("HADETH_ID", ahadeth.get(i).getId());
+
+                //start the activity
+                startActivity(zekrIntetnt);
             }
         });
 
+        //return the view
         return view;
+    }
+
+    /**
+     * A method called to get all the ahadeth from the database and initialize them
+     */
+    private void initializeAhadeth() {
+
+        //Initialize Instance of DataBaseHelper class and initiallize it
+        DataBaseHelper myDbHelper = new DataBaseHelper(getContext());
+
+        //get the cursor from the database pointing to all the ahadeth
+        Cursor ahadethCursor = myDbHelper.openDataBase("forty");
+
+        //loop on all the ahadeth
+        while (ahadethCursor.moveToNext()) {
+
+            //get the data
+            int id = ahadethCursor.getInt(0);
+            String title = ahadethCursor.getString(1);
+            String text = ahadethCursor.getString(2);
+            String teller = ahadethCursor.getString(3);
+            int favourite = ahadethCursor.getInt(4);
+
+            //add the hadeth to the ahadeth list view
+            ahadeth.add(new Hadeth(id, title, text, teller, favourite));
+
+        }
+
     }
 
 }
