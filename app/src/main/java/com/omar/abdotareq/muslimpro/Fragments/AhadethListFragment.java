@@ -3,6 +3,7 @@ package com.omar.abdotareq.muslimpro.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,20 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.omar.abdotareq.muslimpro.activities.HadethActivity;
+import com.omar.abdotareq.muslimpro.activities.PagerListActivity;
 import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
 import com.omar.abdotareq.muslimpro.model.Hadeth;
 import com.omar.abdotareq.muslimpro.R;
+import com.omar.abdotareq.muslimpro.model.Zekr;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
+
+import static com.omar.abdotareq.muslimpro.activities.PagerListActivity.LOG_TAG;
 
 /**
  * this UI class controls Ahadeth .
@@ -40,32 +49,44 @@ public class AhadethListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+         final String LOG_TAG = AhadethListFragment.class.getSimpleName();
 
         View view = inflater.inflate(R.layout.fragment_list_azkar_hadeth, container, false);
+
 
         ahadethListView = view.findViewById(R.id.listView);
 
         ahadethArrayList = new ArrayList<Hadeth>();
-        temp = new ArrayList<String>();
-        ahadethArrayList.add(new Hadeth("First Hadeth"));
-        ahadethArrayList.add(new Hadeth("second"));
-        ahadethArrayList.add(new Hadeth("third"));
-        ahadethArrayList.add(new Hadeth("Fourth"));
 
-        for (Hadeth hadeth : ahadethArrayList
-        ) {
-            temp.add(hadeth.getTitle());
+        // Receive data(Azkar) from PagerListActivity
+        String ahadethAsString = "empty";
+        Bundle bundle = getActivity().getIntent().getExtras();
+        if (bundle != null) {
+            ahadethAsString = bundle.getString("FOURTIES");
         }
 
-        // This is the array adapter, it takes the context of the activity as a
-        // first parameter, the type of list view as a second parameter and your
-        // array as a third parameter.
-        ArrayAdapter<String> HadethAdapter = new ArrayAdapter<>(
-                getContext(),
-                android.R.layout.simple_list_item_1,
-                temp);
+        // Change string to ArrayList
+        Type listOfAhadeth = new TypeToken<List<Hadeth>>() {
+        }.getType();
+        Log.d(LOG_TAG, "this FOURTIES gson" + ahadethAsString);
 
-        ahadethListView.setAdapter(HadethAdapter);
+        ahadethArrayList = new Gson().fromJson(ahadethAsString, listOfAhadeth);
+
+//        temp = new ArrayList<String>();
+//        for (Hadeth hadeth : ahadethArrayList
+//        ) {
+//            temp.add(hadeth.getTitle());
+//        }
+//
+//        // This is the array adapter, it takes the context of the activity as a
+//        // first parameter, the type of list view as a second parameter and your
+//        // array as a third parameter.
+//        ArrayAdapter<String> HadethAdapter = new ArrayAdapter<>(
+//                getContext(),
+//                android.R.layout.simple_list_item_1,
+//                temp);
+//
+//        ahadethListView.setAdapter(HadethAdapter);
 
         ahadethListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

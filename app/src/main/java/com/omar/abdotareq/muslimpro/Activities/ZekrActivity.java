@@ -1,20 +1,15 @@
 package com.omar.abdotareq.muslimpro.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.adapters.DoaaAdapter;
-import com.omar.abdotareq.muslimpro.adapters.FragmentAdapter;
-import com.omar.abdotareq.muslimpro.fragments.DoaaFragment;
 import com.omar.abdotareq.muslimpro.model.Doaa;
-import com.omar.abdotareq.muslimpro.model.Zekr;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ZekrActivity extends AppCompatActivity {
 

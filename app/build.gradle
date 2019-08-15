@@ -34,4 +34,8 @@ dependencies {
     //Horizontal Progress Bar Library
     implementation 'com.daasuu:animateHorizontalProgressBar:0.2.4'
 
+    //Gson library to pass objects between activities
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+
 }
