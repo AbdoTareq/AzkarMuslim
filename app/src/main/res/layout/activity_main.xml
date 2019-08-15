@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    android:background="@color/lightGray">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/card_design"
+            android:background="@drawable/azkar_background"
             android:clickable="true"
             android:focusable="true">
 
@@ -30,7 +31,7 @@
                 android:layout_marginLeft="8dp"
                 android:padding="16dp"
                 android:text="@string/azkar"
-                android:textColor="#000000"
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <ImageView
@@ -55,7 +56,7 @@
             android:layout_below="@id/azkar"
             android:layout_centerVertical="true"
             android:layout_margin="16dp"
-            android:background="@drawable/card_design"
+            android:background="@drawable/ahadeth_background"
             android:clickable="true"
             android:focusable="true">
 
@@ -69,7 +70,7 @@
                 android:layout_marginLeft="8dp"
                 android:padding="16dp"
                 android:text="@string/ahadeth"
-                android:textColor="#000000"
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <ImageView
