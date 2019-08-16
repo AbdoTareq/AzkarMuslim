@@ -27,6 +27,8 @@
 
                 <TextView
                     android:id="@+id/hadeth_text"
+                    android:textSize="35sp"
+                    android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -47,6 +49,8 @@
 
                 <TextView
                     android:id="@+id/hadeth_teller"
+                    android:textSize="20sp"
+                    android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
