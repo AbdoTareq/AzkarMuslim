@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">MuslimPro</string>
+    <string name="app_name">Muslim Pro</string>
     <string name="ahadeth">الأحاديث</string>
+    <string name="forties">الأربعون النووية</string>
     <string name="azkar">الأذكار</string>
     <string name="home">HOME</string>
 

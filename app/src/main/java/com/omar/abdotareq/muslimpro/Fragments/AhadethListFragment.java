@@ -5,36 +5,24 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.activities.FragmentSearch;
 import com.omar.abdotareq.muslimpro.activities.HadethActivity;
-import com.omar.abdotareq.muslimpro.activities.PagerListActivity;
-import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
 import com.omar.abdotareq.muslimpro.adapters.AhadethListAdapter;
-import com.omar.abdotareq.muslimpro.adapters.AzkarListAdapter;
 import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
 import com.omar.abdotareq.muslimpro.model.Hadeth;
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.model.Zekr;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.omar.abdotareq.muslimpro.activities.PagerListActivity.LOG_TAG;
 
 /**
  * this UI class controls Ahadeth .

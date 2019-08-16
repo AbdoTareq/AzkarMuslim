@@ -1,27 +1,27 @@
 package com.omar.abdotareq.muslimpro.activities;
 
+import android.app.SearchManager;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.SearchManager;
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
+import com.omar.abdotareq.muslimpro.R;
+import com.omar.abdotareq.muslimpro.adapters.FragmentAdapter;
 import com.omar.abdotareq.muslimpro.fragments.AhadethListFragment;
 import com.omar.abdotareq.muslimpro.fragments.AzkarListFragment;
-import com.omar.abdotareq.muslimpro.adapters.FragmentAdapter;
-import com.omar.abdotareq.muslimpro.R;
+
+import java.util.Objects;
 
 /**
  * this UI class controls the viewPager & BottomNavigationView & set the correct fragment
@@ -36,6 +36,7 @@ public class PagerListActivity extends AppCompatActivity {
 
     private FragmentAdapter fragmentAdapter;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,16 +50,17 @@ public class PagerListActivity extends AppCompatActivity {
 
         viewPager.setRotationY(180);
 
+        //Azkar
         if (getIntent().getIntExtra("index", -1) == 0) {
-
             viewPager.setCurrentItem(0); //Set Current Item When Activity Start
+            Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.azkar);
             navigation.setSelectedItemId(R.id.navigation_azkar);
-
-        } else if (getIntent().getIntExtra("index", -1) == 1) {
-
+        }
+        //Ahadeth
+        else if (getIntent().getIntExtra("index", -1) == 1) {
             viewPager.setCurrentItem(1); //Set Current Item When Activity Start
+            Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.forties);
             navigation.setSelectedItemId(R.id.navigation_ahadeth);
-
         }
 
     }
@@ -92,14 +94,17 @@ public class PagerListActivity extends AppCompatActivity {
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public void onPageSelected(int position) {
             switch (position) {
                 case 0:
                     navigation.setSelectedItemId(R.id.navigation_azkar);
+                    Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.azkar);
                     break;
                 case 1:
                     navigation.setSelectedItemId(R.id.navigation_ahadeth);
+                    Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.forties);
                     break;
             }
         }

@@ -1,9 +1,7 @@
 package com.omar.abdotareq.muslimpro.activities;
 
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -12,8 +10,6 @@ import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.adapters.DoaaAdapter;
 import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
 import com.omar.abdotareq.muslimpro.model.Doaa;
-import com.omar.abdotareq.muslimpro.model.Hadeth;
-import com.omar.abdotareq.muslimpro.model.Zekr;
 
 import java.util.ArrayList;
 import java.util.List;

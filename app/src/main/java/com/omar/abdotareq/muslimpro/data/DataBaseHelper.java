@@ -60,7 +60,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             try {
 
                 copyDataBase();
-                Toast.makeText(myContext, "Copied Successfully", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(myContext, "Copied Successfully", Toast.LENGTH_SHORT).show();
 
             } catch (IOException e) {
 

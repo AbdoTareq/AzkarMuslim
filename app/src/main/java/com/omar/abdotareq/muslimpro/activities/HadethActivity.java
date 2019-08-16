@@ -1,18 +1,15 @@
 package com.omar.abdotareq.muslimpro.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
 import com.omar.abdotareq.muslimpro.model.Hadeth;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A UI class Activity which shows a hadeth
