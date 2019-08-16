@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
@@ -45,6 +46,8 @@ public class PagerListActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager); //Init Viewpager
         setupFm(getSupportFragmentManager(), viewPager); //Setup Fragment
         viewPager.setOnPageChangeListener(new PageChange()); //Listeners For Viewpager When Page Changed
+
+        viewPager.setRotationY(180);
 
         if (getIntent().getIntExtra("index", -1) == 0) {
 

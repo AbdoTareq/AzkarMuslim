@@ -60,6 +60,7 @@ public class AzkarListFragment extends Fragment implements FragmentSearch {
 
         //initialize the list view
         azkarListView = view.findViewById(R.id.listView);
+        azkarListView.setRotationY(180) ;
 
         //Initialize the azkar from the database
         initializeAzkar();

@@ -81,6 +81,7 @@ public class DoaaFragment extends Fragment {
 
         //find the whole layout and listen for clicks
         RelativeLayout doaaLayout = view.findViewById(R.id.doaa_full_layout);
+        doaaLayout.setRotationY(180);
         doaaLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

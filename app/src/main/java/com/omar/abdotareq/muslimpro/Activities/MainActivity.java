@@ -3,25 +3,14 @@ package com.omar.abdotareq.muslimpro.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.SQLException;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
-import com.omar.abdotareq.muslimpro.model.Doaa;
-import com.omar.abdotareq.muslimpro.model.Hadeth;
-import com.omar.abdotareq.muslimpro.model.Zekr;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**

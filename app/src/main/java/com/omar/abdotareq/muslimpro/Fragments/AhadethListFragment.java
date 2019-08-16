@@ -63,6 +63,7 @@ public class AhadethListFragment extends Fragment implements FragmentSearch {
 
         //initialize the hadeth list view
         ahadethListView = view.findViewById(R.id.listView);
+        ahadethListView.setRotationY(180) ;
 
         //initialize all the ahadeth from the databse
         initializeAhadeth();

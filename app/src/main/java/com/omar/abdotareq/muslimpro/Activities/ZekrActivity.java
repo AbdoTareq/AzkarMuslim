@@ -1,7 +1,9 @@
 package com.omar.abdotareq.muslimpro.activities;
 
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -56,6 +58,12 @@ public class ZekrActivity extends AppCompatActivity {
 
         //set the offScfreen Pages Limit to the number of doaas - 1
         azkarViewpager.setOffscreenPageLimit(doaaList.size() - 1);
+        azkarViewpager.setRotationY(180);
+
+        //set the direction of the view pager swipe LTR(LEFT TO RIGHT)
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//            azkarViewpager.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+//        }
     }
 
     /**
