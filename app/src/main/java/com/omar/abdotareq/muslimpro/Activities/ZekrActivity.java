@@ -37,6 +37,10 @@ public class ZekrActivity extends AppCompatActivity {
         //get the clicked zekr id from intent extra
         int zekrId = getIntent().getIntExtra("ZEKR_ID", 0);
 
+        //get the zekr title and set to the toolbar
+        String zekrTitle = getIntent().getStringExtra("ZEKR_TITLE");
+        getSupportActionBar().setTitle(zekrTitle);
+
         //set up the view pager with the fragment manager
         setupDoaaFm(zekrId); //Setup Fragment
 

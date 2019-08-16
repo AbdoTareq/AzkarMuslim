@@ -38,6 +38,8 @@ public class HadethActivity extends AppCompatActivity {
         hadethText.setText(hadeth.getText());
         hadethTeller.setText(hadeth.getTeller());
 
+        getSupportActionBar().setTitle(hadeth.getTitle());
+
     }
 
     /**

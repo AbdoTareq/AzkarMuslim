@@ -87,6 +87,7 @@ public class AzkarListFragment extends Fragment implements FragmentSearch {
 
                 //pass the clicked zekr id as extras with the intent
                 zekrIntetnt.putExtra("ZEKR_ID", searchedAzkar.get(i).getId());
+                zekrIntetnt.putExtra("ZEKR_TITLE", searchedAzkar.get(i).getTitle());
 
                 //start the activity
                 startActivity(zekrIntetnt);
