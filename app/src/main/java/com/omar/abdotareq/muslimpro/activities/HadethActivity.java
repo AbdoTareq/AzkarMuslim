@@ -1,7 +1,14 @@
 package com.omar.abdotareq.muslimpro.activities;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +23,8 @@ import com.omar.abdotareq.muslimpro.model.Hadeth;
  */
 public class HadethActivity extends AppCompatActivity {
 
+    private Hadeth hadeth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +38,7 @@ public class HadethActivity extends AppCompatActivity {
         int hadethId = getIntent().getIntExtra("HADETH_ID", 0);
 
         //get the clicked hadeth from the database
-        Hadeth hadeth = initializeHdeth(hadethId);
+        hadeth = initializeHdeth(hadethId);
 
         //set the hadeth text and teller
         hadethText.setText(hadeth.getText());
@@ -71,6 +80,33 @@ public class HadethActivity extends AppCompatActivity {
         //return an empty hadeth to avoid null pointer exceptions
         return new Hadeth();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.hadeth_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.share_hadeth) {
+
+            String hadethText = hadeth.getText();
+            hadethText += "\n";
+            hadethText += hadeth.getTeller();
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, hadethText);
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

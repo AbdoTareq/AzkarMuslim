@@ -1,8 +1,12 @@
 package com.omar.abdotareq.muslimpro.activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -21,6 +25,9 @@ public class ZekrActivity extends AppCompatActivity {
 
     //create empty view pager
     private ViewPager azkarViewpager;
+
+    //initialize empty Doaa list
+    private List<Doaa> doaaList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +85,6 @@ public class ZekrActivity extends AppCompatActivity {
      */
     private List<Doaa> initializeDoaa(int zekrParentId) {
 
-        //initialize empty Doaa list
-        List<Doaa> doaaList = new ArrayList<>();
-
         //Initialize Instance of DataBaseHelper class and initiallize it
         DataBaseHelper myDbHelper = new DataBaseHelper(ZekrActivity.this);
 
@@ -104,5 +108,32 @@ public class ZekrActivity extends AppCompatActivity {
         //return the doaa list
         return doaaList;
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.doaa_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.share_doaa) {
+
+            int id = azkarViewpager.getCurrentItem();
+
+            String doaaText = doaaList.get(id).getText();
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, doaaText);
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -9,5 +9,7 @@
     <string name="outOf">" من "</string>
     <string name="doaa_finished">انتهى الذكر</string>
     <string name="problem_occurred">حدث خطأ ما</string>
+    <string name="share_doaa">مشاركة الدعاء</string>
+    <string name="share_hadeth">مشاركة الحديث</string>
 
 </resources>
