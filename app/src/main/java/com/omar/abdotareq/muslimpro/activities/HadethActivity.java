@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.annotation.NonNull;
 
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,8 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
@@ -104,7 +104,17 @@ public class HadethActivity extends AppCompatActivity {
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
 
+        } else if (item.getItemId() == R.id.copy_hadeth) {
+            String hadethText = hadeth.getText();
+            hadethText += "\n";
+            hadethText += hadeth.getTeller();
+
+            ClipboardManager cm = (ClipboardManager) getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            cm.setText(hadethText);
+            Toast.makeText(getApplicationContext(), getString(R.string.copied_clipboard), Toast.LENGTH_SHORT).show();
+
         }
+
 
         return super.onOptionsItemSelected(item);
     }

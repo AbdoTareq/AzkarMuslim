@@ -2,10 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+        android:id="@+id/copy_hadeth"
+        android:icon="@drawable/copy"
+        android:title="@string/copy_hadeth"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/share_hadeth"
         android:icon="@drawable/share_doaa_icon"
         android:title="@string/share_hadeth"
         app:showAsAction="always" />
+
 
 </menu>
