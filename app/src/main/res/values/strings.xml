@@ -11,5 +11,7 @@
     <string name="problem_occurred">حدث خطأ ما</string>
     <string name="share_doaa">مشاركة الدعاء</string>
     <string name="share_hadeth">مشاركة الحديث</string>
+    <string name="copy_hadeth">انسخ النص</string>
+    <string name="copied_clipboard">تم نسخ الى الحافظة</string>
 
 </resources>

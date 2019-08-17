@@ -1,10 +1,13 @@
 package com.omar.abdotareq.muslimpro.activities;
 
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -131,6 +134,18 @@ public class ZekrActivity extends AppCompatActivity {
             sendIntent.putExtra(Intent.EXTRA_TEXT, doaaText);
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
+
+        }else if (item.getItemId() == R.id.copy_doaa) {
+            int id = azkarViewpager.getCurrentItem();
+
+            String doaaText = doaaList.get(id).getText();
+            doaaText += "\n";
+            doaaText +=  doaaList.get(id).getTeller();
+
+            //Enable copy to clipboard
+            ClipboardManager cm = (ClipboardManager) getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            cm.setText(doaaText);
+            Toast.makeText(getApplicationContext(), getString(R.string.copied_clipboard), Toast.LENGTH_SHORT).show();
 
         }
 

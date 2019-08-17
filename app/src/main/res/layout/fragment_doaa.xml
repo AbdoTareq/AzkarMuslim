@@ -27,11 +27,11 @@
 
                 <TextView
                     android:id="@+id/doaa_text"
-                    android:textSize="35sp"
-                    android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"/>
+                    android:padding="8dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="35sp" />
 
             </ScrollView>
 
@@ -50,10 +50,10 @@
 
                 <TextView
                     android:id="@+id/doaa_teller"
-                    android:padding="8dp"
-                    android:textSize="15sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textSize="15sp" />
 
             </ScrollView>
 

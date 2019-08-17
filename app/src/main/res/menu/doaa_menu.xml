@@ -8,4 +8,10 @@
         android:title="@string/share_doaa"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/copy_doaa"
+        android:icon="@drawable/copy"
+        android:title="@string/copy_hadeth"
+        app:showAsAction="always" />
+
 </menu>
