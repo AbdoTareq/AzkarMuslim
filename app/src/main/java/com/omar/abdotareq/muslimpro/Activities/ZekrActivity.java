@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -49,6 +50,13 @@ public class ZekrActivity extends AppCompatActivity {
 
         //set up the view pager with the fragment manager
         setupDoaaFm(zekrId); //Setup Fragment
+
+        azkarViewpager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ZekrActivity.this, "TESTING", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -142,6 +150,7 @@ public class ZekrActivity extends AppCompatActivity {
             doaaText += "\n";
             doaaText +=  doaaList.get(id).getTeller();
 
+            //Enable copy to clipboard
             ClipboardManager cm = (ClipboardManager) getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
             cm.setText(doaaText);
             Toast.makeText(getApplicationContext(), getString(R.string.copied_clipboard), Toast.LENGTH_SHORT).show();

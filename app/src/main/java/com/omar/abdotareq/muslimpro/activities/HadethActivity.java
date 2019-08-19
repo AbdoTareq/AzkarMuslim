@@ -109,6 +109,7 @@ public class HadethActivity extends AppCompatActivity {
             hadethText += "\n";
             hadethText += hadeth.getTeller();
 
+            //Enable copy to clipboard
             ClipboardManager cm = (ClipboardManager) getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
             cm.setText(hadethText);
             Toast.makeText(getApplicationContext(), getString(R.string.copied_clipboard), Toast.LENGTH_SHORT).show();

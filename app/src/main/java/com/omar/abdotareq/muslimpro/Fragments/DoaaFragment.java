@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +45,6 @@ public class DoaaFragment extends Fragment {
     public DoaaFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -79,10 +79,13 @@ public class DoaaFragment extends Fragment {
         doaaProgressBar.setMax(currentDoaa.getNumber());
         doaaProgressBar.setProgress(currentDoaaCount);
 
-        //find the whole layout and listen for clicks
-        RelativeLayout doaaLayout = view.findViewById(R.id.doaa_full_layout);
+        //find the whole layout rotate it for 180 degree
+        LinearLayout doaaLayout = view.findViewById(R.id.doaa_full_layout);
         doaaLayout.setRotationY(180);
-        doaaLayout.setOnClickListener(new View.OnClickListener() {
+
+        //find the transparent layout nad listen for clicks
+        LinearLayout transparentLayout = view.findViewById(R.id.transparent_layout);
+        transparentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
