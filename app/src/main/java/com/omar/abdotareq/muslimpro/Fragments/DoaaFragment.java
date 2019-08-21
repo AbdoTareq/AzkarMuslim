@@ -40,6 +40,8 @@ public class DoaaFragment extends Fragment {
 
     //an int to indicate the number of spoken doaa
     private int currentDoaaCount = 0;
+    private Doaa currentDoaa = new Doaa();
+    private int totalDoaasNumber = 0;
 
 
     public DoaaFragment() {
@@ -64,8 +66,8 @@ public class DoaaFragment extends Fragment {
         doaaProgressBar = view.findViewById(R.id.doaa_progress_bar);
 
         //get the current Doaa nad the total number of doaas
-        final Doaa currentDoaa = (Doaa) getArguments().getSerializable("DOAA");
-        final int totalDoaasNumber = Integer.parseInt(getArguments().getString("DOAAS_NUMBER"));
+        currentDoaa = (Doaa) getArguments().getSerializable("DOAA");
+        totalDoaasNumber = Integer.parseInt(getArguments().getString("DOAAS_NUMBER"));
 
         //set text for all text fields
         doaaText.setText(currentDoaa.getText());
@@ -80,67 +82,63 @@ public class DoaaFragment extends Fragment {
         doaaProgressBar.setProgress(currentDoaaCount);
 
         //find the whole layout rotate it for 180 degree
-        LinearLayout doaaLayout = view.findViewById(R.id.doaa_full_layout);
+        LinearLayout doaaLayout = view.findViewById(R.id.full_doaa_layout);
         doaaLayout.setRotationY(180);
 
-        //find the transparent layout nad listen for clicks
-        LinearLayout transparentLayout = view.findViewById(R.id.transparent_layout);
-        transparentLayout.setOnClickListener(new View.OnClickListener() {
+        //a method called to initialize and handle click events
+        initializeClicks(context, view);
+
+        return view;
+    }
+
+    /**
+     * A method called to handle user clicks on the screen layouts
+     */
+    private void initializeClicks(final Context context, View view) {
+
+        //find the layouts
+        LinearLayout doaaLayout = view.findViewById(R.id.full_doaa_layout);
+        LinearLayout nextDoaaLayout2 = view.findViewById(R.id.next_doaa_layout_2);
+        LinearLayout nextDoaaLayout3 = view.findViewById(R.id.next_doaa_layout_3);
+
+        //handle clicks
+        doaaLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (currentDoaaCount == currentDoaa.getNumber() - 1
-                        && currentDoaa.getId() != totalDoaasNumber - 1) {
-                    //if the current doaa count is the last count for this doaa
-                    //and this is not the last doaa
-
-                    //increment the current count by 1
-                    currentDoaaCount++;
-
-                    //update this info to the user
-                    doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
-                    doaaProgressBar.setProgress(currentDoaaCount);
-
-                    //then go to the next doaa
-                    ((ZekrActivity) getActivity()).getPager().setCurrentItem(currentDoaa.getId() + 1);
-
-                } else if (currentDoaaCount < currentDoaa.getNumber() && currentDoaaCount != currentDoaa.getNumber() - 1) {
-                    //if the current doaa count is still less than the total counts
-
-                    //increment the current count by 1
-                    currentDoaaCount++;
-
-                    //update this info to the user
-                    doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
-                    doaaProgressBar.setProgress(currentDoaaCount);
-
-                } else if (currentDoaa.getId() < totalDoaasNumber - 1) {
-                    //if the current doaa count is not the last doaa
-
-                    //then go to the next doaa
-                    ((ZekrActivity) getActivity()).getPager().setCurrentItem(currentDoaa.getId() + 1);
-
-                } else {
-                    //if the current doaa count is the last doaa
-
-                    //increment the current count by 1
-                    if (currentDoaaCount < currentDoaa.getNumber())
-                        currentDoaaCount++;
-
-                    //update this info to the user
-                    doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
-                    doaaProgressBar.setProgress(currentDoaaCount);
-
-                    //vibrate and notify user that this is this zekr finished
-                    vibrate(context);
-                    Toast.makeText(context, context.getString(R.string.doaa_finished), Toast.LENGTH_SHORT).show();
-
-                }
-
+                //move to next doaa
+                moveToNextDoaa(context);
+            }
+        });
+        nextDoaaLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //move to next doaa
+                moveToNextDoaa(context);
+            }
+        });
+        nextDoaaLayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //move to next doaa
+                moveToNextDoaa(context);
+            }
+        });
+        doaaText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //move to next doaa
+                moveToNextDoaa(context);
+            }
+        });
+        doaaTeller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //move to next doaa
+                moveToNextDoaa(context);
             }
         });
 
-        return view;
+
     }
 
     /**
@@ -161,4 +159,60 @@ public class DoaaFragment extends Fragment {
         }
 
     }
+
+    /**
+     * A method called when user clicks the screen in order to move to the next doaa
+     */
+    private void moveToNextDoaa(Context context) {
+
+        if (currentDoaaCount == currentDoaa.getNumber() - 1
+                && currentDoaa.getId() != totalDoaasNumber - 1) {
+            //if the current doaa count is the last count for this doaa
+            //and this is not the last doaa
+
+            //increment the current count by 1
+            currentDoaaCount++;
+
+            //update this info to the user
+            doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
+            doaaProgressBar.setProgress(currentDoaaCount);
+
+            //then go to the next doaa
+            ((ZekrActivity) getActivity()).getPager().setCurrentItem(currentDoaa.getId() + 1);
+
+        } else if (currentDoaaCount < currentDoaa.getNumber() && currentDoaaCount != currentDoaa.getNumber() - 1) {
+            //if the current doaa count is still less than the total counts
+
+            //increment the current count by 1
+            currentDoaaCount++;
+
+            //update this info to the user
+            doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
+            doaaProgressBar.setProgress(currentDoaaCount);
+
+        } else if (currentDoaa.getId() < totalDoaasNumber - 1) {
+            //if the current doaa count is not the last doaa
+
+            //then go to the next doaa
+            ((ZekrActivity) getActivity()).getPager().setCurrentItem(currentDoaa.getId() + 1);
+
+        } else {
+            //if the current doaa count is the last doaa
+
+            //increment the current count by 1
+            if (currentDoaaCount < currentDoaa.getNumber())
+                currentDoaaCount++;
+
+            //update this info to the user
+            doaaCurrentCount.setText(String.valueOf(currentDoaaCount));
+            doaaProgressBar.setProgress(currentDoaaCount);
+
+            //vibrate and notify user that this is this zekr finished
+            vibrate(context);
+            Toast.makeText(context, context.getString(R.string.doaa_finished), Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
 }

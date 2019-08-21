@@ -6,22 +6,32 @@
     android:background="@color/lightGray">
 
     <LinearLayout
-        android:id="@+id/doaa_full_layout"
+        android:id="@+id/full_doaa_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="9">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/doaa_text_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="8dp"
             android:layout_weight="6"
             android:background="@drawable/white_round_background">
 
+            <LinearLayout
+                android:id="@+id/next_doaa_layout_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:onClick="nextDoaa"/>
+
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/doaa_text"
@@ -33,18 +43,28 @@
 
             </ScrollView>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="8dp"
             android:layout_weight="2"
             android:background="@drawable/white_round_background">
 
+            <LinearLayout
+                android:id="@+id/next_doaa_layout_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:onClick="nextDoaa"/>
+
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
+
 
                 <TextView
                     android:id="@+id/doaa_teller"
@@ -53,9 +73,10 @@
                     android:padding="8dp"
                     android:textSize="15sp" />
 
+
             </ScrollView>
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -102,14 +123,5 @@
         </RelativeLayout>
 
     </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/transparent_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal" />
 
 </RelativeLayout>
