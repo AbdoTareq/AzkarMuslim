@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.omar.abdotareq.muslimpro.R;
+import com.omar.abdotareq.muslimpro.activities.api_activities.QuranMainActivity;
 import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RelativeLayout azkarButton;
     private RelativeLayout ahadeth_button;
+    private RelativeLayout quran_button;
     private int index;
 
     private DataBaseHelper myDbHelper;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         azkarButton = findViewById(R.id.azkar);
         ahadeth_button = findViewById(R.id.ahadeth);
+        quran_button = findViewById(R.id.quran);
 
         azkarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
                 index = 1;
                 Intent intent = new Intent(MainActivity.this, PagerListActivity.class);
                 intent.putExtra("index", index);
+                startActivity(intent);
+            }
+        });
+        quran_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, QuranMainActivity.class);
                 startActivity(intent);
             }
         });

@@ -14,4 +14,10 @@
     <string name="copy_hadeth">انسخ النص</string>
     <string name="copied_clipboard">تم نسخ الى الحافظة</string>
 
+    <string name="base_url">"http://api.alquran.cloud/"</string>
+    <string name="base_audio_url">"http://cdn.alquran.cloud/"</string>
+    <string name="language">"Language : "</string>
+    <string name="quran">القرآن</string>
+    <string name="audio">الإستماع إلى القرآن</string>
+
 </resources>

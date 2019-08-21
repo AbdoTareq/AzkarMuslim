@@ -4,7 +4,7 @@
     package="com.omar.abdotareq.muslimpro">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +14,9 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
+        <activity android:name=".activities.api_activities.QuranAudioActivity"></activity>
+        <activity android:name=".activities.api_activities.QuranMainActivity" />
+        <activity android:name=".activities.api_activities.ChooseQuranAudioActivity" />
         <activity
             android:name=".activities.HadethActivity"
             android:screenOrientation="portrait" />
