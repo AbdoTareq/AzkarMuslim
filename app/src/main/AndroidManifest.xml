@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/launcher_icon_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl">
         <activity android:name=".activities.api_activities.QuranAudioActivity"></activity>
         <activity android:name=".activities.api_activities.QuranMainActivity" />
