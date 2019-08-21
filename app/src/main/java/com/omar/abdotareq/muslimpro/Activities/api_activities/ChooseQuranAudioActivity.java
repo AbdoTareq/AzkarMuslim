@@ -36,6 +36,7 @@ public class ChooseQuranAudioActivity extends AppCompatActivity {
         //Initialize UI elements
         quranAudioListView = findViewById(R.id.choose_quran_audio_list_view);
 
+        //initialize a progress dialoge
         progressDialog = new ProgressDialog(ChooseQuranAudioActivity.this);
         progressDialog.setMessage(getString(R.string.viewing));
         progressDialog.setCancelable(false);

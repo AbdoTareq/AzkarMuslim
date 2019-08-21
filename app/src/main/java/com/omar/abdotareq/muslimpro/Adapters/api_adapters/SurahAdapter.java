@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.omar.abdotareq.muslimpro.model.Zekr;
 import com.omar.abdotareq.muslimpro.model.api_models.SimpleSurah;
 
 import java.util.List;
@@ -22,6 +23,21 @@ public class SurahAdapter extends ArrayAdapter {
         mContext = context;
         mRes = resource;
         mSurahs = surahs;
+    }
+
+    /**
+     * A method called to update the surahs list of the adapter and notify for changes
+     */
+    public void updateSurahs(List<SimpleSurah> surahs) {
+
+        //clear the current surahs
+        this.mSurahs.clear();
+
+        //add the new surahs
+        this.mSurahs.addAll(surahs);
+
+        //notify the adapter for data changes
+        this.notifyDataSetChanged();
     }
 
     @Override
