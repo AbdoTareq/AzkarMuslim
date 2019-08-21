@@ -19,5 +19,6 @@
     <string name="language">"Language : "</string>
     <string name="quran">القرآن</string>
     <string name="audio">الإستماع إلى القرآن</string>
+    <string name="viewing">جاري عرض الأصوات</string>
 
 </resources>

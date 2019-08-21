@@ -7,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.model.api_models.QuranAudio;
-import com.omar.abdotareq.muslimpro.model.api_models.Surah;
+import com.omar.abdotareq.muslimpro.model.api_models.SimpleSurah;
 
 import java.util.List;
 
@@ -17,9 +15,9 @@ public class SurahAdapter extends ArrayAdapter {
 
     private Context mContext;
     private int mRes;
-    private List<Surah> mSurahs;
+    private List<SimpleSurah> mSurahs;
 
-    public SurahAdapter(Context context, int resource, List<Surah> surahs) {
+    public SurahAdapter(Context context, int resource, List<SimpleSurah> surahs) {
         super(context, resource, surahs);
         mContext = context;
         mRes = resource;

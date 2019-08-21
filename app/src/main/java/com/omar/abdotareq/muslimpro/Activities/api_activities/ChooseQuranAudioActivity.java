@@ -2,6 +2,7 @@ package com.omar.abdotareq.muslimpro.activities.api_activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,7 @@ public class ChooseQuranAudioActivity extends AppCompatActivity {
 
     //create UI elements
     private ListView quranAudioListView;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,11 @@ public class ChooseQuranAudioActivity extends AppCompatActivity {
 
         //Initialize UI elements
         quranAudioListView = findViewById(R.id.choose_quran_audio_list_view);
+
+        progressDialog = new ProgressDialog(ChooseQuranAudioActivity.this);
+        progressDialog.setMessage(getString(R.string.viewing));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
 
         //get all the quran audios
         getAllQuranAudios();
@@ -65,6 +72,9 @@ public class ChooseQuranAudioActivity extends AppCompatActivity {
 
                     //get the received list of audios
                     final ListOfQuranAudios listOfAudios = response.body();
+
+                    //dismiss the progres dialog
+                    progressDialog.dismiss();
 
                     //initialize the adapter
                     QuranAudioAdapter quranAudioAdapter = new QuranAudioAdapter(ChooseQuranAudioActivity.this,

@@ -14,8 +14,8 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.omar.abdotareq.muslimpro.R;
 import com.omar.abdotareq.muslimpro.adapters.api_adapters.SurahAdapter;
-import com.omar.abdotareq.muslimpro.model.api_models.Aya;
-import com.omar.abdotareq.muslimpro.model.api_models.Quran;
+import com.omar.abdotareq.muslimpro.model.api_models.SimpleQuran;
+import com.omar.abdotareq.muslimpro.model.api_models.SimpleSurah;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,7 +23,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 import okhttp3.ResponseBody;
@@ -40,13 +39,13 @@ public class QuranAudioActivity extends AppCompatActivity {
     private TextView currentSurahTextView;
     private ImageView playButton;
 
-    Quran quran;
+    SimpleQuran quran;
 
     private String identifier = "";
 
     //important variables to manage audio play
-    private int currentAyaIndex = 0;
-    private List<Aya> currentAyahs;
+    private int currentAyaNumber = 0;
+    private SimpleSurah surah;
     private boolean isPlaying = false;
     private Call<ResponseBody> audioCall;
 
@@ -70,11 +69,11 @@ public class QuranAudioActivity extends AppCompatActivity {
         playButton = findViewById(R.id.quran_audio_play_button);
 
         //get the quran from the stored json file at the assets and convert it to Quran Object
-        quran = new Gson().fromJson(getQuranAsString(QuranAudioActivity.this), Quran.class);
+        quran = new Gson().fromJson(getQuranAsString(QuranAudioActivity.this), SimpleQuran.class);
 
         //initialize the adapter
         SurahAdapter surahAdapter = new SurahAdapter(QuranAudioActivity.this, android.R.layout.simple_list_item_1
-                , quran.getSurahs());
+                , quran.getSimpleSurahs());
 
         //set the adapter with the list view
         surahListView.setAdapter(surahAdapter);
@@ -99,17 +98,17 @@ public class QuranAudioActivity extends AppCompatActivity {
                 //if the bytes queue contains any byte arrays -> clear it
                 bytesQueue.clear();
 
-                //reset the current aya index
-                currentAyaIndex = 0;
-
                 //get the ayahs of the clicked surah
-                currentAyahs = quran.getSurahs().get(i).getAyahs();
+                surah = quran.getSimpleSurahs().get(i);
+
+                //reset the current aya index
+                currentAyaNumber = surah.getMinAya();
 
                 //start requesting the first aya of this surah
-                retrofitCall(identifier, currentAyahs.get(0).getNumber());
+                retrofitCall(identifier, currentAyaNumber);
 
                 //set the current surah text
-                currentSurahTextView.setText(quran.getSurahs().get(i).getName());
+                currentSurahTextView.setText(surah.getName());
 
             }
         });
@@ -179,12 +178,12 @@ public class QuranAudioActivity extends AppCompatActivity {
                             bytesQueue.add(response.body().bytes());
 
                             //increment the current aya index
-                            currentAyaIndex++;
+                            currentAyaNumber++;
 
-                            if (currentAyaIndex != currentAyahs.size())
+                            if (currentAyaNumber <= surah.getMaxAya())
                                 //if the current index is not equal the size of the current ayahs
                                 // then request the next aya
-                                retrofitCall(identifier, currentAyahs.get(currentAyaIndex).getNumber());
+                                retrofitCall(identifier, currentAyaNumber);
 
                             if (!isPlaying) {
                                 //if the quran is not playing now -> start playing and set the playing flag to true
@@ -274,7 +273,7 @@ public class QuranAudioActivity extends AppCompatActivity {
 
         String json = null;
         try {
-            InputStream is = context.getAssets().open("quran.json");
+            InputStream is = context.getAssets().open("simple_quran.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
