@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.fragments;
+package com.omar.abdotareq.meshkat.fragments;
 
 
 import android.content.Context;
@@ -15,15 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daasuu.ahp.AnimateHorizontalProgressBar;
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.activities.ZekrActivity;
-import com.omar.abdotareq.muslimpro.data.CountsAsString;
-import com.omar.abdotareq.muslimpro.model.Doaa;
+import com.omar.abdotareq.meshkat.R;
+import com.omar.abdotareq.meshkat.activities.ZekrActivity;
+import com.omar.abdotareq.meshkat.data.CountsAsString;
+import com.omar.abdotareq.meshkat.model.Doaa;
 
 /**
  * An UI class to view zekr to count zekr count like tasbeh

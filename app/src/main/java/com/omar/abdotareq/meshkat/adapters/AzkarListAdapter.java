@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.adapters;
+package com.omar.abdotareq.meshkat.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.omar.abdotareq.muslimpro.model.Zekr;
+import com.omar.abdotareq.meshkat.model.Zekr;
 
 import java.util.List;
 

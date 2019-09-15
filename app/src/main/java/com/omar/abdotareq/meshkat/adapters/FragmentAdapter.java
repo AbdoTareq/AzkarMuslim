@@ -1,10 +1,10 @@
-package com.omar.abdotareq.muslimpro.adapters;
+package com.omar.abdotareq.meshkat.adapters;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.omar.abdotareq.muslimpro.activities.FragmentSearch;
+import com.omar.abdotareq.meshkat.activities.FragmentSearch;
 
 import java.util.ArrayList;
 import java.util.List;

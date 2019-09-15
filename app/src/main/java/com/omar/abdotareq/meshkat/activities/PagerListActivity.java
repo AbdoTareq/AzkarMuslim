@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.activities;
+package com.omar.abdotareq.meshkat.activities;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -16,10 +16,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.adapters.FragmentAdapter;
-import com.omar.abdotareq.muslimpro.fragments.AhadethListFragment;
-import com.omar.abdotareq.muslimpro.fragments.AzkarListFragment;
+import com.omar.abdotareq.meshkat.R;
+import com.omar.abdotareq.meshkat.adapters.FragmentAdapter;
+import com.omar.abdotareq.meshkat.fragments.AhadethListFragment;
+import com.omar.abdotareq.meshkat.fragments.AzkarListFragment;
 
 import java.util.Objects;
 

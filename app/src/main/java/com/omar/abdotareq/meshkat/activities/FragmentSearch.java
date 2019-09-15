@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.activities;
+package com.omar.abdotareq.meshkat.activities;
 
 /**
  * An interface implemented by the Fragments that will have a search

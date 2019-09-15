@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.data;
+package com.omar.abdotareq.meshkat.data;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
-import android.widget.Toast;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

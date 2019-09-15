@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.adapters;
+package com.omar.abdotareq.meshkat.adapters;
 
 import android.os.Bundle;
 
@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.omar.abdotareq.muslimpro.fragments.DoaaFragment;
-import com.omar.abdotareq.muslimpro.model.Doaa;
+import com.omar.abdotareq.meshkat.fragments.DoaaFragment;
+import com.omar.abdotareq.meshkat.model.Doaa;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DoaaAdapter extends FragmentPagerAdapter {

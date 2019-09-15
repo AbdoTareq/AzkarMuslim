@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.activities;
+package com.omar.abdotareq.meshkat.activities;
 
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -14,10 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.adapters.DoaaAdapter;
-import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
-import com.omar.abdotareq.muslimpro.model.Doaa;
+import com.omar.abdotareq.meshkat.R;
+import com.omar.abdotareq.meshkat.adapters.DoaaAdapter;
+import com.omar.abdotareq.meshkat.data.DataBaseHelper;
+import com.omar.abdotareq.meshkat.model.Doaa;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.model;
+package com.omar.abdotareq.meshkat.model;
 
 import java.io.Serializable;
 

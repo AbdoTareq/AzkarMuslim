@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro;
+package com.omar.abdotareq.meshkat;
 
 import android.content.Context;
 

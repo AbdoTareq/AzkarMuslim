@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.data;
+package com.omar.abdotareq.meshkat.data;
 
 import android.provider.BaseColumns;
 

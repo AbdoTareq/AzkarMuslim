@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.fragments;
+package com.omar.abdotareq.meshkat.fragments;
 
 
 import android.content.Intent;
@@ -14,12 +14,12 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.activities.FragmentSearch;
-import com.omar.abdotareq.muslimpro.activities.HadethActivity;
-import com.omar.abdotareq.muslimpro.adapters.AhadethListAdapter;
-import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
-import com.omar.abdotareq.muslimpro.model.Hadeth;
+import com.omar.abdotareq.meshkat.R;
+import com.omar.abdotareq.meshkat.activities.FragmentSearch;
+import com.omar.abdotareq.meshkat.activities.HadethActivity;
+import com.omar.abdotareq.meshkat.adapters.AhadethListAdapter;
+import com.omar.abdotareq.meshkat.data.DataBaseHelper;
+import com.omar.abdotareq.meshkat.model.Hadeth;
 
 import java.util.ArrayList;
 import java.util.List;

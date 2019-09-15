@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.activities;
+package com.omar.abdotareq.meshkat.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
+import com.omar.abdotareq.meshkat.R;
+import com.omar.abdotareq.meshkat.data.DataBaseHelper;
 
 import java.io.IOException;
 

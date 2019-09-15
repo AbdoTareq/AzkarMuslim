@@ -1,4 +1,4 @@
-package com.omar.abdotareq.muslimpro.activities;
+package com.omar.abdotareq.meshkat.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,9 +14,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.omar.abdotareq.muslimpro.R;
-import com.omar.abdotareq.muslimpro.data.DataBaseHelper;
-import com.omar.abdotareq.muslimpro.model.Hadeth;
+import com.omar.abdotareq.meshkat.R;
+import com.omar.abdotareq.meshkat.data.DataBaseHelper;
+import com.omar.abdotareq.meshkat.model.Hadeth;
 
 /**
  * A UI class Activity which shows a hadeth
