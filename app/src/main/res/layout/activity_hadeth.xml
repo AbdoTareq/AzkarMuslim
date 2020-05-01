@@ -13,10 +13,11 @@
         android:orientation="vertical"
         android:weightSum="9">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="8dp"
+            style="@style/CardViewStyle"
             android:layout_weight="8"
             >
 
@@ -34,17 +35,17 @@
 
             </ScrollView>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            style="@style/CardViewStyle"
             android:layout_margin="8dp"
             android:layout_weight="1"
             >
 
             <ScrollView
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -57,7 +58,7 @@
 
             </ScrollView>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
