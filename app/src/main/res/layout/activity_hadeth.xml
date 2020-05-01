@@ -4,7 +4,6 @@
     android:id="@+id/doaa_full_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGray"
     android:clickable="true"
     android:focusable="true">
 
@@ -19,7 +18,7 @@
             android:layout_height="0dp"
             android:layout_margin="8dp"
             android:layout_weight="8"
-            android:background="@drawable/white_round_background">
+            >
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -31,7 +30,7 @@
                     android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black" />
+                     />
 
             </ScrollView>
 
@@ -42,9 +41,10 @@
             android:layout_height="0dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:background="@drawable/white_round_background">
+            >
 
             <ScrollView
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

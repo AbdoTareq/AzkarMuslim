@@ -23,5 +23,6 @@
     <string name="no_favorites_items">No Favorites</string>
     <string name="no_favorites_msg">Long press on item to add to favorites.</string>
     <string name="favorites_remove_msg">Long press on item to remove from favorites.</string>
+    <string name="dark">الوضع الليلي</string>
 
 </resources>

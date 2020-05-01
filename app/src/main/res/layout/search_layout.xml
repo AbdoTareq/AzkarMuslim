@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_search"
         android:inputType="text"
-        android:layout_gravity="left"
-        android:gravity="left"/>
+        android:layout_gravity="start"
+        android:gravity="start"/>
 
 </LinearLayout>

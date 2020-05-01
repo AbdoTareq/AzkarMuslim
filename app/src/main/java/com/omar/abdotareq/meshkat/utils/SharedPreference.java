@@ -15,6 +15,8 @@ public class SharedPreference {
 
     public static final String PREFS_NAME = "PRODUCT_APP";
     public static final String FAVORITES = "Product_Favorite";
+    public final static String USER_NIGHT_MODE = "USER_NIGHT_MODE";
+
 
     public SharedPreference() {
         super();
@@ -72,5 +74,19 @@ public class SharedPreference {
             return null;
 
         return (ArrayList<Product>) favorites;
+    }
+
+    public static void setSharedPrefsNightMode(Context context, boolean isChecked) {
+        SharedPreferences settings = context.getSharedPreferences("PREFS_NAME", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean(USER_NIGHT_MODE, isChecked);
+        editor.apply();
+
+    }
+
+    public static boolean getSharedPrefsNightMode(Context context) {
+
+        SharedPreferences settings = context.getSharedPreferences("PREFS_NAME", 0);
+        return settings.getBoolean(USER_NIGHT_MODE, false);
     }
 }

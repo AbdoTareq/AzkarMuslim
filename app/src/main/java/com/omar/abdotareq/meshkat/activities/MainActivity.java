@@ -1,16 +1,24 @@
 package com.omar.abdotareq.meshkat.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import com.omar.abdotareq.meshkat.R;
 import com.omar.abdotareq.meshkat.data.DataBaseHelper;
+import com.omar.abdotareq.meshkat.utils.SharedPreference;
 
 import java.io.IOException;
+
+import static com.omar.abdotareq.meshkat.utils.SharedPreference.getSharedPrefsNightMode;
 
 
 /**
@@ -23,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RelativeLayout azkarButton;
     private RelativeLayout ahadeth_button;
+    private Switch aSwitch;
     private int index;
 
     private DataBaseHelper myDbHelper;
@@ -32,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // this for settings dark mode
+        if (getSharedPrefsNightMode(this))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         //Initialize Instance of DataBaseHelper class and initiallize it
         myDbHelper = new DataBaseHelper(this);
 
@@ -39,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         azkarButton = findViewById(R.id.azkar);
         ahadeth_button = findViewById(R.id.ahadeth);
+        aSwitch = findViewById(R.id.switchButton);
 
         azkarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +72,23 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, PagerListActivity.class);
                 intent.putExtra("index", index);
                 startActivity(intent);
+            }
+        });
+
+        aSwitch.setChecked(SharedPreference.getSharedPrefsNightMode(getApplicationContext()));
+
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    // The toggle is enabled
+                    SharedPreference.setSharedPrefsNightMode(getApplicationContext(), true);
+                    Toast.makeText(getApplicationContext(), "اعد فتح التطبيق", Toast.LENGTH_LONG).show();
+                } else {
+                    // The toggle is disabled
+                    SharedPreference.setSharedPrefsNightMode(getApplicationContext(), false);
+                    Toast.makeText(getApplicationContext(), "اعد فتح التطبيق", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

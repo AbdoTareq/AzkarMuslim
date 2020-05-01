@@ -1,11 +1,30 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorPrimaryVariant">@color/primaryLightColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <item name="textAppearanceHeadline6">@style/CustomHeadline5</item>
+        <item name="textAppearanceHeadline4">@style/CustomHeadline4</item>
+        <item name="textAppearanceHeadline3">@style/CustomHeadline3</item>
     </style>
+
+    // smaller is text larger
+
+    <style name="CustomHeadline6" parent="TextAppearance.MaterialComponents.Headline6" />
+
+    <style name="CustomHeadline5" parent="TextAppearance.MaterialComponents.Headline5" />
+
+    <style name="CustomHeadline4" parent="TextAppearance.MaterialComponents.Headline4" />
+
+    <style name="CustomHeadline3" parent="TextAppearance.MaterialComponents.Headline3" />
 
 </resources>
