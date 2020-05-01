@@ -1,16 +1,18 @@
 package com.omar.abdotareq.meshkat.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.omar.abdotareq.meshkat.R;
 import com.omar.abdotareq.meshkat.data.DataBaseHelper;
@@ -25,9 +27,6 @@ import static com.omar.abdotareq.meshkat.utils.SharedPreference.getSharedPrefsNi
  * An intro that has azkarButton and ahadeth_button
  */
 public class MainActivity extends AppCompatActivity {
-
-    public static final String LOG_TAG = MainActivity.class.getSimpleName();
-
 
     private RelativeLayout azkarButton;
     private RelativeLayout ahadeth_button;
@@ -83,12 +82,11 @@ public class MainActivity extends AppCompatActivity {
                 if (b) {
                     // The toggle is enabled
                     SharedPreference.setSharedPrefsNightMode(getApplicationContext(), true);
-                    Toast.makeText(getApplicationContext(), "اعد فتح التطبيق", Toast.LENGTH_LONG).show();
                 } else {
                     // The toggle is disabled
                     SharedPreference.setSharedPrefsNightMode(getApplicationContext(), false);
-                    Toast.makeText(getApplicationContext(), "اعد فتح التطبيق", Toast.LENGTH_LONG).show();
                 }
+                restartApp();
             }
         });
 
@@ -108,4 +106,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void restartApp() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
 }

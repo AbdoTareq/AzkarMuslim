@@ -22,7 +22,7 @@
             android:layout_marginEnd="32dp"
             android:gravity="end|center"
             android:text="@string/dark"
-            android:textSize="45sp" />
+            android:textSize="35sp" />
 
         <RelativeLayout
             android:id="@+id/ahadeth"
