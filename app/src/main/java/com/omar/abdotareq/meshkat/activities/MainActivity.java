@@ -107,9 +107,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void restartApp() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-
+        this.recreate();
     }
 }
