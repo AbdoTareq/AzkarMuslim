@@ -14,12 +14,11 @@
         android:weightSum="9">
 
         <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewStyle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="8dp"
-            style="@style/CardViewStyle"
-            android:layout_weight="8"
-            >
+            android:layout_margin="@dimen/very_small_margin"
+            android:layout_weight="8">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -27,23 +26,21 @@
 
                 <TextView
                     android:id="@+id/hadeth_text"
-                    android:textSize="35sp"
-                    android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                     />
+                    android:padding="@dimen/very_small_margin"
+                    android:textSize="@dimen/large_font" />
 
             </ScrollView>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewStyle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            style="@style/CardViewStyle"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            >
+            android:layout_margin="@dimen/very_small_margin"
+            android:layout_weight="1">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -51,10 +48,10 @@
 
                 <TextView
                     android:id="@+id/hadeth_teller"
-                    android:textSize="20sp"
-                    android:padding="8dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/very_small_margin"
+                    android:textSize="@dimen/small_font" />
 
             </ScrollView>
 

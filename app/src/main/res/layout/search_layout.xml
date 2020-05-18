@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_search"
         android:inputType="text"
+        android:textSize="@dimen/medium_font"
         android:layout_gravity="start"
         android:gravity="start"/>
 

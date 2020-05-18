@@ -61,7 +61,7 @@ public class AzkarListFragment extends Fragment implements FragmentSearch {
         // initialize the adapter
         azkarAdapter = new AzkarListAdapter(
                 getContext(),
-                android.R.layout.simple_list_item_1,
+                R.layout.hadeth_azkar_list_item,
                 searchedAzkar);
 
         //set up the adapter with the list view

@@ -28,7 +28,6 @@
     <style name="CustomHeadline3" parent="TextAppearance.MaterialComponents.Headline3" />
 
     <style name="CardViewStyle" parent="Widget.MaterialComponents.CardView">
-        <item name="strokeWidth">1dp</item>
     </style>
 
 </resources>

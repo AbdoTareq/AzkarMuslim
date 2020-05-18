@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.omar.abdotareq.meshkat.R;
 import com.omar.abdotareq.meshkat.model.Zekr;
 
 import java.util.List;
@@ -58,7 +59,7 @@ public class AzkarListAdapter extends ArrayAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         row = layoutInflater.inflate(mRes, parent, false);
 
-        TextView textView = row.findViewById(android.R.id.text1);
+        TextView textView = row.findViewById(R.id.text1);
 
         textView.setText(mAzkar.get(position).getTitle());
 

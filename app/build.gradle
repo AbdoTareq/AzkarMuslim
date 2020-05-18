@@ -7,8 +7,8 @@ android {
         applicationId "com.omar.abdotareq.meshkat"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 6
-        versionName "1.06"
+        versionCode 9
+        versionName "1.09"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -41,5 +41,8 @@ dependencies {
 
     //Gson library to pass objects between activities
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // this for dynamic dimensions Scalable DP Library
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
 }

@@ -51,7 +51,7 @@ public class AhadethListFragment extends Fragment implements FragmentSearch {
 
         //initialize the hadeth list view
         ahadethListView = view.findViewById(R.id.listView);
-        ahadethListView.setRotationY(180) ;
+        ahadethListView.setRotationY(180);
 
         //initialize all the ahadeth from the databse
         initializeAhadeth();
@@ -61,7 +61,7 @@ public class AhadethListFragment extends Fragment implements FragmentSearch {
         //initialize the adapter
         ahadethAdapter = new AhadethListAdapter(
                 getContext(),
-                android.R.layout.simple_list_item_1,
+                R.layout.hadeth_azkar_list_item,
                 searchedAhadeth);
 
         //set up the adapter with the list view
@@ -119,7 +119,7 @@ public class AhadethListFragment extends Fragment implements FragmentSearch {
     @Override
     public void onSearchTextChange(String text) {
 
-        searchedAhadeth = search(text) ;
+        searchedAhadeth = search(text);
         ahadethAdapter.updateAhadethList(searchedAhadeth);
 
     }

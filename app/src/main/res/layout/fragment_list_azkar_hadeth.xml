@@ -7,7 +7,7 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:dividerHeight="5dp"
-        android:padding="5dp" />
+        android:dividerHeight="@dimen/very_small_margin"
+        android:padding="@dimen/very_small_margin" />
 
 </FrameLayout>

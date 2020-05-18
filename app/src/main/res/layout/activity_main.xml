@@ -11,25 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/small_margin"
         android:orientation="vertical">
 
         <Switch
             android:id="@+id/switchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/large_margin"
             android:gravity="end|center"
             android:text="@string/dark"
-            android:textSize="35sp" />
+            android:textSize="@dimen/very_large_font" />
 
         <RelativeLayout
             android:id="@+id/ahadeth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/small_margin"
             android:background="@drawable/ahadeth_background"
             android:clickable="true"
             android:focusable="true">
@@ -40,23 +39,24 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:padding="16dp"
+                android:layout_marginStart="@dimen/very_small_margin"
+                android:layout_marginLeft="@dimen/very_small_margin"
+                android:padding="@dimen/small_margin"
                 android:text="@string/ahadeth"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="@dimen/very_large_font" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/very_small_margin"
                 android:checked="false"
                 android:clickable="false"
-                android:padding="16dp"
+                android:padding="@dimen/small_margin"
                 android:src="@drawable/arrow" />
 
         </RelativeLayout>
@@ -65,7 +65,7 @@
             android:id="@+id/azkar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/small_margin"
             android:background="@drawable/azkar_background"
             android:clickable="true"
             android:focusable="true">
@@ -76,25 +76,26 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:padding="16dp"
+                android:layout_marginStart="@dimen/very_small_margin"
+                android:layout_marginLeft="@dimen/very_small_margin"
+                android:padding="@dimen/small_margin"
                 android:text="@string/azkar"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="@dimen/very_large_font" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/very_small_margin"
+                android:layout_marginLeft="@dimen/very_small_margin"
+                android:layout_marginTop="@dimen/very_small_margin"
                 android:checked="false"
                 android:clickable="false"
-                android:padding="16dp"
+                android:padding="@dimen/small_margin"
                 android:src="@drawable/arrow" />
 
         </RelativeLayout>
